@@ -33,7 +33,7 @@ public class Votos {
 
         if (vencedores.size() == 1) {
             int idx = vencedores.get(0);
-            System.out.println("\nVencedor da vota\u00E7\u00E3o: " + suspeitos[idx].getNome() + " (" + maior + " voto" + (maior == 1 ? "" : "s") + ")");
+            System.out.println("Suspeito escolhido: " + suspeitos[idx].getNome() + " (" + maior + " voto" + (maior == 1 ? "" : "s") + ")");
         } else {
             System.out.println("\nEmpate entre " + vencedores.size() + " suspeitos (cada um com " + maior + " votos):");
             for (int idx : vencedores) {
