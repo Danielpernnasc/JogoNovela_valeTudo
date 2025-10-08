@@ -1,33 +1,39 @@
-# Detetive — Quem matou Odete Roitman?
+# Jogo Novela: Vale Tudo
 
-Jogo de votação em console onde um grupo de pessoas vota em suspeitos e, ao final, o sistema apura os votos e revela se a votação acertou o assassino real.
+## Objetivo do Jogo
+O objetivo do jogo é descobrir quem matou Odete Roitman. Os jogadores participarão de um bolão com 20 votos para tentar adivinhar o culpado. O jogo se passa em um ambiente de interação e estratégia, onde cada decisão pode levar a novos caminhos e descobertas.
 
-## Regras do Jogo
-- Há uma lista fixa de suspeitos:
-  - 1. Maria de Fátima
-  - 2. César
-  - 3. Heleninha Roitman
-  - 4. Tia Celina
-  - 5. Marco Aurélio
-- Exatamente um suspeito deve ser marcado como assassino real (no código).
-- Um número definido de votantes (padrão: 1) vota digitando um número entre 1 a 5.
-- Cada voto válido incrementa a contagem do suspeito escolhido.
-- Entradas inválidas (não numéricas ou fora do intervalo 1–5) não contam e o sistema pede novamente.
-- Ao final:
-  - O sistema imprime o voto escolhido.
-  - Revela o assassino real e informa se acertou ou não.
+## Como Executar o Projeto
+Para executar o projeto, siga os passos abaixo:
+1. Certifique-se de ter o Java instalado em sua máquina.
+2. Faça o download do projeto a partir do repositório.
+3. Navegue até o diretório do projeto no terminal.
+4. Execute o seguinte comando:
+   ```
+   java -jar JogoNovelaValeTudo.jar
+   ```
 
-## Fluxo do Jogo
-1. Mostrar os 5 suspeitos.
-2. O jogaor escolhe um do deles
-3. O console roda o algoritmo e mostra o Assassino
-4. Imprime no terminal se você acertou ou erro
+## Tecnologias Utilizadas
+- **Java**: A linguagem principal utilizada para o desenvolvimento do jogo.
+- **Batchfile**: Para automatizar alguns processos de execução e configuração do ambiente.
 
-## Como definir o assassino real
-No arquivo Main.java:
-- Marque exatamente um suspeito como assassino real, por índice (0-based):
-- Exemplo para marcar “César” (posição 1 na lista):
+## Como Contribuir
+Contribuições são sempre bem-vindas! Para contribuir com o projeto:
+1. Faça um fork do repositório.
+2. Crie uma nova branch para sua feature ou correção:
+   ```
+   git checkout -b nova-feature
+   ```
+3. Faça suas alterações e comite-as:
+   ```
+   git commit -m 'Adicionando nova feature'
+   ```
+4. Envie suas alterações:
+   ```
+   git push origin nova-feature
+   ```
+5. Abra um Pull Request.
 
-O sistema fara a logica da probabilidade e mostara o assassino 
+## Licença
+Esse projeto está licenciado sob a Licença MIT - veja o arquivo [LICENSE](LICENSE) para mais detalhes.
 
-int quantidadeVotantes = 0; // altere aqui
