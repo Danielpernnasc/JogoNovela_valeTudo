@@ -14,15 +14,14 @@ Jogo de votação em console onde um grupo de pessoas vota em suspeitos e, ao fi
 - Cada voto válido incrementa a contagem do suspeito escolhido.
 - Entradas inválidas (não numéricas ou fora do intervalo 1–5) não contam e o sistema pede novamente.
 - Ao final:
-  - O sistema imprime os votos de cada suspeito.
-  - Identifica o(s) mais votado(s). Em caso de empate, lista todos.
-  - Revela o assassino real e informa se a votação acertou.
+  - O sistema imprime o voto escolhido.
+  - Revela o assassino real e informa se acertou ou não.
 
 ## Fluxo do Jogo
-1. Definir o assassino real no início da execução.
-2. Informar a quantidade de votantes.
-3. Coletar votos no console até atingir o total.
-4. Apurar e exibir o resultado, desempates e a revelação do assassino real.
+1. Mostrar os 5 suspeitos.
+2. O jogaor escolhe um do deles
+3. O console roda o algoritmo e mostra o Assassino
+4. Imprime no terminal se você acertou ou erro
 
 ## Como definir o assassino real
 No arquivo Main.java:
