@@ -9,6 +9,7 @@ import java.util.List;
  // Update the package path as needed
 
 public class Votos {
+    private int numeroAcertos = 0; // Tracks the number of correct guesses
 
     /**
      * Recebe a instância de Assassinos que já teve a votação feita.
@@ -41,7 +42,7 @@ public class Votos {
 
         if (vencedores.size() == 1) {
             int idx = vencedores.get(0);
-            System.out.println("\nVencedor da votação: " + suspeitos[idx].getNome() + " (" + maiorVotos + " votos)");
+            System.out.println(suspeitos[idx].getNome() + " (" + maiorVotos + " votos)");
         } else {
             System.out.println("\nEmpate entre " + vencedores.size() + " suspeitos (cada um com " + maiorVotos + " votos):");
             for (int idx : vencedores) {
@@ -66,9 +67,18 @@ public class Votos {
             // checar se votação acertou
             boolean acertou = vencedores.contains(idxAssassinoReal);
             if (acertou) {
-                System.out.println("A votação acertou o assassino!");
+                numeroAcertos++;
+                if(numeroAcertos > 1){
+                    System.out.println("Parabéns! a todos que acertaram" + numeroAcertos + " vezes!");
+                }else {
+                    System.out.println("Parabéns! você acertou o assassino!");
+                }
             } else {
-                System.out.println("A votação não acertou o assassino.");
+                if(numeroAcertos < 1){
+                    System.out.println("Pena! Nínguem acertou o assassino" + numeroAcertos + " vezes!");
+                }else {
+                    System.out.println("Pena! Voçê não acertou o assassino.");
+                }
             }
         }
     }

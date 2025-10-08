@@ -1,5 +1,34 @@
 {
     "cSpell.words": [
         "Oassassino"
-    ]
+    ],
+    "files.encoding": "utf8",
+    // Terminal integrado em UTF-8 (duas opções, escolha uma como padrão)
+    "terminal.integrated.profiles.windows": {
+        "CMD UTF-8": {
+            "path": "C:\\Windows\\System32\\cmd.exe",
+            "args": [
+                "/K",
+                "chcp 65001 >NUL"
+            ]
+        },
+        "PowerShell UTF-8": {
+            "source": "PowerShell",
+            "args": [
+                "-NoLogo",
+                "-NoExit",
+                "-Command",
+                "$OutputEncoding=[Console]::OutputEncoding=[System.Text.UTF8Encoding]::new()"
+            ]
+        }
+    },
+    "terminal.integrated.defaultProfile.windows": "CMD UTF-8",
+    "terminal.integrated.windowsEnableConpty": true,
+    // Usar terminal integrado ao rodar e forçar UTF-8 na JVM
+    "java.debug.settings.console": "integratedTerminal",
+    "java.debug.settings.vmArgs": "-Dfile.encoding=UTF-8",
+    // Garantir UTF-8 em qualquer execução no terminal integrado
+    "terminal.integrated.env.windows": {
+        "JAVA_TOOL_OPTIONS": "-Dfile.encoding=UTF-8"
+    }
 }
