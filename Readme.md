@@ -37,3 +37,9 @@ Contribuições são sempre bem-vindas! Para contribuir com o projeto:
 ## Licença
 Esse projeto está licenciado sob a Licença MIT - veja o arquivo [LICENSE](LICENSE) para mais detalhes.
 
+## Contato/Autor
+Para dúvidas, sugestões ou feedback, entre em contato:
+- **Nome**: Daniel Pernnasc
+- **Email**: daniel.pernnasc@example.com
+
+Agradecemos pela sua participação!

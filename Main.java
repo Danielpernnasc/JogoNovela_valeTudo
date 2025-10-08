@@ -1,6 +1,7 @@
-﻿package Detetive;
+package Detetive;
 import Detetive.suspeitos.osSupeitos;
-import Detetive.votacao.Votos;
+import Detetive.votacao.Votos; 
+
 
 
 

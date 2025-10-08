@@ -1,12 +1,10 @@
-﻿// Ensure the package declaration is at the top of the file and no misplaced braces exist before this line
 package Detetive.votacao;
 import Detetive.killer.Oassassino;
 import Detetive.suspeitos.osSupeitos;
 import java.util.ArrayList;
 import java.util.List;
 
-// Import the Assassinos class if it exists in another package
- // Update the package path as needed
+
 
 public class Votos {
    

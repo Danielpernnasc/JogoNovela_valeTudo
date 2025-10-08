@@ -8,6 +8,7 @@ public class osSupeitos {
     private Oassassino[] suspeitos;
     private int[] votos;
     private final Scanner scanner = new Scanner(System.in);
+    private static final boolean DEBUG = false;
 
 
 
@@ -120,15 +121,26 @@ public class osSupeitos {
         return escolhido;
     }
 
-    public int escolherAssassinoUniforme() {
-        double[] probs = new double[suspeitos.length];
-        for (int i = 0; i < probs.length; i++) probs[i] = 1.0;
-        return escolherAssassinoPorProbabilidade(probs);
+    public int escolherAssassinoUniforme(){
+        Random rnd = new Random();
+        double v = rnd.nextDouble();
+        int idx = (int) Math.floor(v * suspeitos.length);
+        if(idx >= suspeitos.length) idx = suspeitos.length - 1;
+        if(DEBUG) {
+            System.out.printf(Locale.US, "Valor aleat\u00F3rio = %.4f -> escolhido: %s (\\u00EDndice %d)%n",
+             v, suspeitos[idx].getNome(), idx);
+        }
+        return idx;
     }
 
-    /**
-     * Utility: reseta a flag assassino de todos os suspeitos.
-     */
+
+    // private void logEscolhaAleatoria(double v, int idx){
+    //     if(DEBUG) {
+    //         System.out.printf(Locale.US, "Valor aleat\u00F3rio = %.4f -> escolhido: %s (\\u00EDndice %d)%n",
+    //          v, suspeitos[idx].getNome(), idx);
+    //     }
+    // }
+
     private void resetarAssassino() {
         for (Oassassino s : suspeitos) {
             s.setAssassino(false);
