@@ -1,26 +1,66 @@
+:: filepath: C:\Users\Daniel\Desktop\JavaSpringBoot\ValeTudo\Detetive\rodarJogo.bat
 @echo off
-cd /d %~dp0
-if not exist bin mkdir bin
+setlocal EnableExtensions EnableDelayedExpansion
+title Detetive - Build ^& Run
+pushd "%~dp0"
+chcp 65001 >nul
 
-echo Compilando...
-cmd /C "C:\Users\Daniel\.jdks\openjdk-23.0.1\bin\java.exe -Dfile.encoding=UTF-8 -XX:+ShowCodeDetailsInExceptionMessages -cp C:\Users\Daniel\AppData\Roaming\Code\User\workspaceStorage\01eef6fc300fd8cb5768c489ce79a67e\redhat.java\jdt_ws\jdt.ls-java-project\bin Detetive.Main "
-if %errorlevel% neq 0 (
-  echo Erro na compilacao!
-  pause
-  exit /b
+set "MAIN_CLASS=Detetive.Main"
+
+:: Verifica JDK
+where javac >nul 2>nul || (echo ERRO: javac nao encontrado no PATH.& goto :PAUSE_EXIT)
+where java  >nul 2>nul || (echo ERRO: java nao encontrado no PATH.& goto :PAUSE_EXIT)
+
+:LOOP
+cls
+echo ============================
+echo   Compilando o projeto...
+echo ============================
+
+:: Limpa/Cria bin
+if exist "bin" rmdir /s /q "bin"
+mkdir "bin"
+
+:: Coleta fontes
+set "SOURCES="
+for /r %%F in (*.java) do (
+  set "P=%%~fF"
+  set "P=!P:\=/!"
+  set "SOURCES=!SOURCES! "!P!""
 )
 
-echo Tentando executar como Main...
-java -cp bin Main
-if %errorlevel% equ 0 goto end
+if not defined SOURCES (
+  echo ERRO: Nenhum arquivo .java encontrado.
+  set "RC=1"
+  goto :ASK
+)
 
-echo Tentando executar como Detetive.Main...
-java -cp bin Detetive.Main
-if %errorlevel% equ 0 goto end
+:: Compila
+javac -encoding UTF-8 -d "bin" !SOURCES!
+if errorlevel 1 (
+  echo.
+  echo ERRO: Compilacao falhou.
+  set "RC=1"
+  goto :ASK
+)
 
-echo Nao foi possivel localizar a classe Main nem Detetive.Main.
-echo Verifique se o Main.java tem package correto e se foi compilado.
-echo Listando bin\...
-dir bin /s /b
-:end
+echo.
+echo ============================
+echo   Executando %MAIN_CLASS% ...
+echo ============================
+java -Dfile.encoding=UTF-8 -cp "bin" %MAIN_CLASS%
+set "RC=%ERRORLEVEL%"
+
+:ASK
+echo.
+choice /C RS /N /M "Reiniciar [R] ou Sair [S]? "
+:: Importante: testar em ordem decrescente
+if errorlevel 2 goto :PAUSE_EXIT
+if errorlevel 1 goto :LOOP
+
+:PAUSE_EXIT
+echo.
+echo Fim. Codigo de saida: %RC%
 pause
+popd
+exit /b %RC%

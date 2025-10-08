@@ -6,7 +6,7 @@ import Detetive.votacao.Votos;
 
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Bem-vindo ao jogo de detetive!");
+        System.out.println("Bem-vindo ao jogo Vale Tudo!");
         System.out.println("Quem matou Odete Roitman?");
         osSupeitos saoSuspeitos = new osSupeitos();
 

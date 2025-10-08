@@ -69,13 +69,13 @@ public class Votos {
             if (acertou) {
                 numeroAcertos++;
                 if(numeroAcertos > 1){
-                    System.out.println("Parabéns! a todos que acertaram" + numeroAcertos + " vezes!");
+                    System.out.println("Parabéns! a todos que acertaram " + numeroAcertos + " vezes!");
                 }else {
                     System.out.println("Parabéns! você acertou o assassino!");
                 }
             } else {
-                if(numeroAcertos < 1){
-                    System.out.println("Pena! Nínguem acertou o assassino" + numeroAcertos + " vezes!");
+                if(numeroAcertos < 1 && numeroAcertos == 0){
+                    System.out.println("Pena! Nínguem acertou o assassino numero de votos " + numeroAcertos + " vezes!");
                 }else {
                     System.out.println("Pena! Voçê não acertou o assassino.");
                 }
