@@ -10,7 +10,7 @@ Jogo de votação em console onde um grupo de pessoas vota em suspeitos e, ao fi
   - 4. Tia Celina
   - 5. Marco Aurélio
 - Exatamente um suspeito deve ser marcado como assassino real (no código).
-- Um número definido de votantes (padrão: 10) vota digitando um número entre 1 a 5.
+- Um número definido de votantes (padrão: 1) vota digitando um número entre 1 a 5.
 - Cada voto válido incrementa a contagem do suspeito escolhido.
 - Entradas inválidas (não numéricas ou fora do intervalo 1–5) não contam e o sistema pede novamente.
 - Ao final:
