@@ -19,7 +19,7 @@ public class Main {
          //saoSuspeitos.getSuspeitos()[0].setAssassino(true); // <-- exemplo: César
 
         // Iniciar votação com exatamente 20 pessoas:
-        int quantidadeVotantes = 10;
+        int quantidadeVotantes = 1;
         saoSuspeitos.iniciarVotacao(quantidadeVotantes);
 
         // Apurar e mostrar resultados:
