@@ -7,20 +7,18 @@ import java.util.List;
 
 
 public class Votos {
-   
-   
     public void apurar(osSupeitos assassinos) {
-       Oassassino[] suspeitos = assassinos.getSuspeitos();
+        Oassassino[] suspeitos = assassinos.getSuspeitos();
         int[] voto = assassinos.getVotos();
 
         int totalVotos = 0;
         for (int v : voto) totalVotos += v;
 
-        System.out.println("=== Resultado da Votação ===");
-        int seuVoto = -1;
+        System.out.println("=== Resultado da Vota\u00E7\u00E3o ===");
+        int maior = -1;
         for (int i = 0; i < suspeitos.length; i++) {
-            System.out.println(suspeitos[i].getNome() + ": " + voto[i] + " voto");
-            if (voto[i] > seuVoto) seuVoto = voto[i];
+            System.out.println(suspeitos[i].getNome() + ": " + voto[i] + " voto" + (voto[i] == 1 ? "" : "s"));
+            if (voto[i] > maior) maior = voto[i];
         }
 
         if (totalVotos == 0) {
@@ -28,23 +26,21 @@ public class Votos {
             return;
         }
 
-        // lista de vencedores (pode haver empate)
         List<Integer> vencedores = new ArrayList<>();
         for (int i = 0; i < voto.length; i++) {
-            if (voto[i] == seuVoto) vencedores.add(i);
+            if (voto[i] == maior) vencedores.add(i);
         }
 
         if (vencedores.size() == 1) {
             int idx = vencedores.get(0);
-            System.out.println(suspeitos[idx].getNome() + " (" + seuVoto + " voto)");
+            System.out.println("\nVencedor da vota\u00E7\u00E3o: " + suspeitos[idx].getNome() + " (" + maior + " voto" + (maior == 1 ? "" : "s") + ")");
         } else {
-            System.out.println("\nEmpate entre " + vencedores.size() + " suspeitos (cada um com " + seuVoto + " votos):");
+            System.out.println("\nEmpate entre " + vencedores.size() + " suspeitos (cada um com " + maior + " votos):");
             for (int idx : vencedores) {
                 System.out.println("- " + suspeitos[idx].getNome());
             }
         }
 
-        // descobrir o assassino real
         int idxAssassinoReal = -1;
         for (int i = 0; i < suspeitos.length; i++) {
             if (suspeitos[i].isAssassino()) {
@@ -53,20 +49,18 @@ public class Votos {
             }
         }
 
-        System.out.println("\n=== Revelação ===");
+        System.out.println("\n=== Revela\u00E7\u00E3o ===");
         if (idxAssassinoReal == -1) {
             System.out.println("Nenhum assassino real foi definido.");
         } else {
-            System.out.println("O assassino real é: " + suspeitos[idxAssassinoReal].getNome());
-            // checar se votação acertou
-            boolean acertou = vencedores.contains(idxAssassinoReal);
+            System.out.println("O assassino real \u00E9: " + suspeitos[idxAssassinoReal].getNome());
+            boolean acertou = vencedores.contains(idxAssassinoReal); // compara pelo índice
             if (acertou) {
-                System.out.println("Parabéns! a todos que acertaram "+ suspeitos[idxAssassinoReal].getNome() + ".");
-              
+                System.out.println("Parab\u00E9ns! Voc\u00EA acertou o assassino: " + suspeitos[idxAssassinoReal].getNome() + ".");
             } else {
-                System.out.println("Pena! Voçê não acertou o assassino.");
-               
+                System.out.println("Pena! Voc\u00EA n\u00E3o acertou o assassino.");
             }
         }
     }
 }
+// ...existing code...
