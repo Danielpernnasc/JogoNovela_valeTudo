@@ -1,7 +1,7 @@
 # Jogo Novela: Vale Tudo
 
 ## Objetivo do Jogo
-O objetivo do jogo é descobrir quem matou Odete Roitman. Os jogadores participarão de um bolão com 20 votos para tentar adivinhar o culpado. O jogo se passa em um ambiente de interação e estratégia, onde cada decisão pode levar a novos caminhos e descobertas.
+O objetivo do jogo é descobrir quem matou Odete Roitman. o algoritmo mostrar o assassino e vc tenta descobrir se acertou
 
 ## Como Executar o Projeto
 Para executar o projeto, siga os passos abaixo:
